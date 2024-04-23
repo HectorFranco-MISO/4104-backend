@@ -16,6 +16,9 @@ export const dataSourceOptions: DataSourceOptions = {
     migrationsRun: false,
     ssl: {
         rejectUnauthorized: false,
+    },
+    extra: {
+        ssl: true
     }
 
 };
