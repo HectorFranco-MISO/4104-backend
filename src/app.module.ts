@@ -24,12 +24,12 @@ import { dataSourceOptions } from 'db/data-source';
 
 @Module({
   imports: [
-    MovieModule, 
-    DirectorModule, 
-    ActorModule, 
-    GenreModule, 
-    PlatformModule, 
-    ReviewModule, 
+    MovieModule,
+    DirectorModule,
+    ActorModule,
+    GenreModule,
+    PlatformModule,
+    ReviewModule,
     YoutubeTrailerModule,
     MovieActorModule,
     PlatformMovieModule,
@@ -39,14 +39,20 @@ import { dataSourceOptions } from 'db/data-source';
       type: 'postgres',
       host: process.env.DB_HOST || 'localhost',
       port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'arte7',
+      username: process.env.USER_NAME || 'postgres',
+      password: process.env.PASSWORD || 'postgres',
+      database: process.env.DATABASE || 'arte7',
       entities: ['dist/**/*.entity.js'],
       dropSchema: true,
       synchronize: true,
       migrations: [__dirname + '/shared/migrations/**/*{.ts,.js}'],
       migrationsRun: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+      extra: {
+        ssl: true
+      }
     }),
   ],
   controllers: [AppController],
