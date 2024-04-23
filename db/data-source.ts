@@ -4,8 +4,8 @@ import { DataSource, DataSourceOptions } from "typeorm";
 
 export const dataSourceOptions: DataSourceOptions = {
     type: 'postgres',
+    url: "postgres://default:PXruE40hsapZ@ep-fancy-pond-a4ucyhxe.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
     // host: process.env.DB_HOST || 'localhost',
-    url: 'postgres://admin:KUhXnWPfxk3vlR0QO7bAvC0uciwXo3gA@dpg-cojfmsn109ks73f9ed3g-a/db_streamflix',
     port: 5432,
     // username: process.env.USER_NAME || 'postgres',
     // password: process.env.PASSWORD || 'postgres',
@@ -17,9 +17,6 @@ export const dataSourceOptions: DataSourceOptions = {
     migrationsRun: false,
     ssl: {
         rejectUnauthorized: false,
-    },
-    extra: {
-        ssl: true
     }
 
 };

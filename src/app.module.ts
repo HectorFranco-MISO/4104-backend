@@ -35,28 +35,9 @@ import { dataSourceOptions } from 'db/data-source';
     PlatformMovieModule,
     ActorMovieModule,
     MoviePlatformModule,
-    // TypeOrmModule.forRoot({
-    //   type: 'postgres',
-    //   host: process.env.DB_HOST || 'localhost',
-    //   port: 5432,
-    //   username: process.env.USER_NAME || 'postgres',
-    //   password: process.env.PASSWORD || 'postgres',
-    //   database: process.env.DATABASE || 'arte7',
-    //   entities: ['dist/**/*.entity.js'],
-    //   dropSchema: true,
-    //   synchronize: true,
-    //   migrations: [__dirname + '/shared/migrations/**/*{.ts,.js}'],
-    //   migrationsRun: true,
-    //   ssl: {
-    //     rejectUnauthorized: false,
-    //   },
-    //   extra: {
-    //     ssl: true
-    //   }
-    // }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: 'postgres://admin:KUhXnWPfxk3vlR0QO7bAvC0uciwXo3gA@dpg-cojfmsn109ks73f9ed3g-a/db_streamflix',
+      url:"postgres://default:PXruE40hsapZ@ep-fancy-pond-a4ucyhxe.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
       // host: process.env.DB_HOST || 'localhost',
       port: 5432,
       // username: process.env.USER_NAME || 'postgres',
@@ -68,12 +49,10 @@ import { dataSourceOptions } from 'db/data-source';
       migrations: [__dirname + '/shared/migrations/**/*{.ts,.js}'],
       migrationsRun: true,
       ssl: {
-        rejectUnauthorized: false,
+        rejectUnauthorized: false
       },
-      extra: {
-        ssl: true
-      }
     }),
+
   ],
   controllers: [AppController],
   providers: [AppService],
